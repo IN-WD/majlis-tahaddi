@@ -1,0 +1,460 @@
+{
+ "en.1": {
+  "2013-14": [
+   "Manchester City",
+   "Liverpool FC",
+   380,
+   86,
+   38
+  ],
+  "2014-15": [
+   "Chelsea FC",
+   "Manchester City",
+   380,
+   87,
+   38
+  ],
+  "2015-16": [
+   "Leicester City",
+   "Arsenal FC",
+   380,
+   81,
+   38
+  ],
+  "2016-17": [
+   "Chelsea FC",
+   "Tottenham Hotspur",
+   380,
+   93,
+   38
+  ],
+  "2017-18": [
+   "Manchester City",
+   "Manchester United",
+   380,
+   100,
+   38
+  ],
+  "2018-19": [
+   "Manchester City",
+   "Liverpool FC",
+   380,
+   98,
+   38
+  ],
+  "2019-20": [
+   "Liverpool FC",
+   "Manchester City",
+   380,
+   99,
+   38
+  ],
+  "2020-21": [
+   "Manchester City FC",
+   "Manchester United FC",
+   380,
+   86,
+   38
+  ],
+  "2021-22": [
+   "Manchester City FC",
+   "Liverpool FC",
+   380,
+   93,
+   38
+  ],
+  "2022-23": [
+   "Manchester City FC",
+   "Arsenal FC",
+   380,
+   89,
+   38
+  ],
+  "2023-24": [
+   "Manchester City FC",
+   "Arsenal FC",
+   380,
+   91,
+   38
+  ],
+  "2024-25": [
+   "Liverpool FC",
+   "Arsenal FC",
+   380,
+   84,
+   38
+  ],
+  "2025-26": [
+   "Arsenal FC",
+   "Manchester City FC",
+   380,
+   85,
+   38
+  ]
+ },
+ "es.1": {
+  "2013-14": [
+   "Atlético Madrid",
+   "FC Barcelona",
+   380,
+   90,
+   38
+  ],
+  "2014-15": [
+   "FC Barcelona",
+   "Real Madrid",
+   380,
+   94,
+   38
+  ],
+  "2015-16": [
+   "FC Barcelona",
+   "Real Madrid",
+   380,
+   91,
+   38
+  ],
+  "2016-17": [
+   "Real Madrid",
+   "FC Barcelona",
+   380,
+   93,
+   38
+  ],
+  "2017-18": [
+   "FC Barcelona",
+   "Atlético Madrid",
+   380,
+   93,
+   38
+  ],
+  "2018-19": [
+   "FC Barcelona",
+   "Atlético Madrid",
+   380,
+   87,
+   38
+  ],
+  "2019-20": [
+   "Real Madrid",
+   "FC Barcelona",
+   380,
+   87,
+   38
+  ],
+  "2020-21": [
+   "Club Atlético de Madrid",
+   "Real Madrid CF",
+   380,
+   86,
+   38
+  ],
+  "2021-22": [
+   "Real Madrid CF",
+   "FC Barcelona",
+   380,
+   86,
+   38
+  ],
+  "2022-23": [
+   "FC Barcelona",
+   "Real Madrid CF",
+   380,
+   88,
+   38
+  ],
+  "2023-24": [
+   "Real Madrid CF",
+   "FC Barcelona",
+   380,
+   95,
+   38
+  ],
+  "2024-25": [
+   "FC Barcelona",
+   "Real Madrid CF",
+   370,
+   85,
+   37
+  ],
+  "2025-26": [
+   "FC Barcelona",
+   "Real Madrid CF",
+   380,
+   94,
+   38
+  ]
+ },
+ "it.1": {
+  "2013-14": [
+   "Juventus",
+   "AS Roma",
+   380,
+   102,
+   38
+  ],
+  "2014-15": [
+   "Juventus",
+   "AS Roma",
+   380,
+   87,
+   38
+  ],
+  "2015-16": [
+   "Juventus",
+   "SSC Napoli",
+   380,
+   91,
+   38
+  ],
+  "2016-17": [
+   "Juventus",
+   "AS Roma",
+   380,
+   91,
+   38
+  ],
+  "2017-18": [
+   "Juventus",
+   "SSC Napoli",
+   380,
+   95,
+   38
+  ],
+  "2018-19": [
+   "Juventus",
+   "SSC Napoli",
+   380,
+   90,
+   38
+  ],
+  "2019-20": [
+   "Juventus",
+   "Inter",
+   380,
+   83,
+   38
+  ],
+  "2020-21": [
+   "FC Internazionale Milano",
+   "AC Milan",
+   380,
+   91,
+   38
+  ],
+  "2021-22": [
+   "AC Milan",
+   "FC Internazionale Milano",
+   380,
+   86,
+   38
+  ],
+  "2022-23": [
+   "SSC Napoli",
+   "SS Lazio",
+   380,
+   90,
+   38
+  ],
+  "2023-24": [
+   "FC Internazionale Milano",
+   "AC Milan",
+   380,
+   94,
+   38
+  ],
+  "2024-25": [
+   "SSC Napoli",
+   "FC Internazionale Milano",
+   370,
+   79,
+   37
+  ],
+  "2025-26": [
+   "FC Internazionale Milano",
+   "SSC Napoli",
+   380,
+   87,
+   38
+  ]
+ },
+ "de.1": {
+  "2013-14": [
+   "Bayern München",
+   "Borussia Dortmund",
+   306,
+   90,
+   34
+  ],
+  "2014-15": [
+   "Bayern München",
+   "VfL Wolfsburg",
+   306,
+   79,
+   34
+  ],
+  "2015-16": [
+   "Bayern München",
+   "Borussia Dortmund",
+   306,
+   88,
+   34
+  ],
+  "2016-17": [
+   "Bayern München",
+   "RB Leipzig",
+   306,
+   82,
+   34
+  ],
+  "2017-18": [
+   "Bayern München",
+   "FC Schalke 04",
+   306,
+   84,
+   34
+  ],
+  "2018-19": [
+   "Bayern München",
+   "Borussia Dortmund",
+   306,
+   78,
+   34
+  ],
+  "2019-20": [
+   "Bayern München",
+   "Borussia Dortmund",
+   306,
+   82,
+   34
+  ],
+  "2020-21": [
+   "FC Bayern München",
+   "RB Leipzig",
+   306,
+   78,
+   34
+  ],
+  "2021-22": [
+   "FC Bayern München",
+   "Borussia Dortmund",
+   306,
+   77,
+   34
+  ],
+  "2022-23": [
+   "FC Bayern München",
+   "Borussia Dortmund",
+   306,
+   71,
+   34
+  ],
+  "2023-24": [
+   "Bayer 04 Leverkusen",
+   "VfB Stuttgart",
+   306,
+   90,
+   34
+  ],
+  "2024-25": [
+   "FC Bayern München",
+   "Bayer 04 Leverkusen",
+   306,
+   82,
+   34
+  ],
+  "2025-26": [
+   "FC Bayern München",
+   "Borussia Dortmund",
+   306,
+   89,
+   34
+  ]
+ },
+ "fr.1": {
+  "2014-15": [
+   "Paris Saint-Germain",
+   "Olympique Lyonnais",
+   380,
+   83,
+   38
+  ],
+  "2015-16": [
+   "Paris Saint-Germain",
+   "Olympique Lyonnais",
+   380,
+   96,
+   38
+  ],
+  "2016-17": [
+   "AS Monaco",
+   "Paris Saint-Germain",
+   380,
+   95,
+   38
+  ],
+  "2017-18": [
+   "Paris Saint-Germain",
+   "AS Monaco",
+   380,
+   93,
+   38
+  ],
+  "2018-19": [
+   "Paris Saint-Germain",
+   "Lille OSC",
+   380,
+   91,
+   38
+  ],
+  "2019-20": [
+   "Paris Saint-Germain",
+   "Olympique Marseille",
+   279,
+   68,
+   27
+  ],
+  "2020-21": [
+   "Lille OSC",
+   "Paris Saint-Germain",
+   380,
+   83,
+   38
+  ],
+  "2021-22": [
+   "Paris Saint-Germain",
+   "Olympique Marseille",
+   380,
+   86,
+   38
+  ],
+  "2022-23": [
+   "Paris Saint-Germain",
+   "RC Lens",
+   380,
+   85,
+   38
+  ],
+  "2023-24": [
+   "Paris Saint-Germain FC",
+   "AS Monaco FC",
+   306,
+   76,
+   34
+  ],
+  "2024-25": [
+   "Paris Saint-Germain FC",
+   "Olympique de Marseille",
+   306,
+   84,
+   34
+  ],
+  "2025-26": [
+   "Paris Saint-Germain FC",
+   "Racing Club de Lens",
+   305,
+   76,
+   34
+  ]
+ }
+}
