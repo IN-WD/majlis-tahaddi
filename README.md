@@ -5,15 +5,15 @@
 An Arabic two-team quiz game: pick 6 categories, play 36 questions worth 200/400/600 points, with three lifelines per team. Runs in any browser and as an offline Android app.
 
 ## تحميل التطبيق · Download
-**[⬇️ majlis-tahaddi-v1.0.apk](release/majlis-tahaddi-v1.0.apk)** — Android 5.0+، يعمل بدون إنترنت.
+**[⬇️ majlis-tahaddi-v1.1.apk](release/majlis-tahaddi-v1.1.apk)** — Android 5.0+، يعمل بدون إنترنت.
 
 افتح الملف على جوالك ← اسمح بالتثبيت من هذا المصدر ← تثبيت. قد يظهر تحذير Play Protect لأن التطبيق من خارج المتجر: اختر «تثبيت على أي حال».
 
 Open the file on your phone → allow installs from this source → Install.
 
 ## المزايا · Features
-- ٩ فئات: ثقافة عامة، إسلاميات، جغرافيا، تاريخ، لغة عربية، علوم، تقنية، رياضة، عالم الحيوان
-- ~٤٩٠٠ سؤال، تُسحب عشوائياً لكل لعبة، ولا تتكرر الأسئلة التي لُعبت على نفس الجهاز
+- ١٥ فئة: ثقافة عامة، إسلاميات، جغرافيا، تاريخ، لغة عربية، علوم، تقنية، رياضة، عالم الحيوان، السعودية، عواصم، عملات، حساب ذهني، ألغاز، قيادة ومرور
+- ~٥٩٠٠ سؤال، تُسحب عشوائياً لكل لعبة، ولا تتكرر الأسئلة التي لُعبت على نفس الجهاز
 - مؤقت ٦٠ ثانية للفريق صاحب الدور ثم ٣٠ ثانية للفريق الآخر
 - وسائل المساعدة: دبّل ×٢، الحفرة، وقت إضافي
 - حفظ تلقائي للعبة (النقاط، الدور، الأسئلة)
@@ -44,7 +44,8 @@ The question data is third-party content under its own licenses — **non-commer
 - **ArabicMMLU** (MBZUAI) — https://github.com/mbzuai-nlp/ArabicMMLU — CC BY-NC-SA 4.0. Filtered and regrouped by subject/level.
 - **EXAMS** (Hardalov et al., 2020) — https://github.com/mhardalov/exams-qa — CC BY-SA 4.0. Arabic subset, filtered.
 - **OpenTriviaQA** — https://github.com/uberspot/OpenTriviaQA — CC BY-SA 4.0. Selected sports/animal questions translated into Arabic (`data/opentriviaqa_ar.json`, shared under CC BY-SA 4.0).
-- About 50 original questions written for this project.
+- Original categories written for this project: Saudi Arabia, capitals, currencies, mental math (generated) and traditional folk riddles — `tools/extra_categories.py` → `data/extra_ar.json`. Driving questions come from ArabicMMLU.
+- About 50 other original questions.
 - Font: **Tajawal** (Boutros Fonts / Mourad Boutros), SIL Open Font License 1.1 — `android/assets/fonts/OFL-LICENSE.txt`.
 
 Some dataset questions contain errors or curriculum-specific content; the in-game «سؤال آخر» button swaps a question.
