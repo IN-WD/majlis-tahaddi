@@ -1,0 +1,26 @@
+!!brut.androlib.apk.ApkInfo
+apkFileName: majlis.apk
+compressionType: false
+doNotCompress:
+- resources.arsc
+- png
+- woff2
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: 127
+  renameManifestPackage: null
+resourcesAreCompressed: false
+sdkInfo:
+  minSdkVersion: 21
+  targetSdkVersion: 34
+sharedLibrary: false
+sparseResources: false
+unknownFiles: {}
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.9.3
+versionInfo:
+  versionCode: 1
+  versionName: 1.0
