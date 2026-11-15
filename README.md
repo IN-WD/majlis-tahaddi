@@ -5,7 +5,7 @@
 An Arabic two-team quiz game: pick 6 categories, play 36 questions worth 200/400/600 points, with three lifelines per team. Runs in any browser and as an offline Android app.
 
 ## تحميل التطبيق · Download
-**[⬇️ majlis-alomda-v2.6.apk](release/majlis-alomda-v2.6.apk)** — Android 5.0+، يعمل بدون إنترنت.
+**[⬇️ majlis-alomda-v2.7.apk](release/majlis-alomda-v2.7.apk)** — Android 5.0+، يعمل بدون إنترنت.
 
 افتح الملف على جوالك ← اسمح بالتثبيت من هذا المصدر ← تثبيت. قد يظهر تحذير Play Protect لأن التطبيق من خارج المتجر: اختر «تثبيت على أي حال».
 
@@ -13,7 +13,7 @@ Open the file on your phone → allow installs from this source → Install.
 
 ## المزايا · Features
 - ٢٦ فئة: حروف، إيموجي أماكن وأسماء، إيموجي كرة قدم، إيموجي أنمي، إيموجي أمثال، ثقافة عامة، إسلاميات، جغرافيا، تاريخ، لغة عربية، علوم، تقنية، رياضة، عالم الحيوان، السعودية، لهجات سعودية، من وين العبارة؟، عواصم، عملات، حساب ذهني، ألغاز، دوري روشن، الدوريات الكبرى، بطولات المنتخبات، ألعاب فيفا، أنمي
-- ~٨١٦٠ سؤال، تُسحب عشوائياً لكل لعبة، ولا تتكرر الأسئلة التي لُعبت على نفس الجهاز
+- ~٧٥٥٠ سؤالاً بعد التدقيق اللغوي وحذف المكرر، تُسحب عشوائياً لكل لعبة، ولا يتكرر السؤال في نفس اللعبة ولا الأسئلة التي لُعبت على نفس الجهاز
 - مؤقت ٦٠ ثانية للفريق صاحب الدور ثم ٣٠ ثانية للفريق الآخر
 - وسائل المساعدة: دبّل ×٢، الحفرة، وقت إضافي
 - حفظ تلقائي للعبة (النقاط، الدور، الأسئلة)
@@ -56,3 +56,4 @@ The question data is third-party content under its own licenses — **non-commer
 - Font: **Tajawal** (Boutros Fonts / Mourad Boutros), SIL Open Font License 1.1 — `android/assets/fonts/OFL-LICENSE.txt`.
 
 Some dataset questions contain errors or curriculum-specific content; the in-game «سؤال آخر» button swaps a question.
+- `tools/clean_bank.py`: language clean-up (broken «لا» letters from PDF extraction, stray punctuation, spacing, decimal percentages, repeated choices) and de-duplication of exact and near-identical questions.
