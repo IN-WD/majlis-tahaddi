@@ -34,6 +34,9 @@ input[type=text]{width:100%;background:var(--panel2);border:2px solid transparen
 input[type=text]:focus{border-color:var(--brand)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:10px;margin-top:8px}
+.ghead{font-size:16px;font-weight:800;color:var(--brand);margin:18px 0 8px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+body.dark .ghead{color:var(--gold)}
+#catPick .ghead:first-child{margin-top:6px}
 .cat-pick{background:var(--panel2);border:2px solid transparent;border-radius:14px;padding:12px 8px;font-size:15px;font-weight:700;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
 .cat-pick.on{border-color:var(--brand);background:var(--panel)}
 body.dark .cat-pick.on{background:var(--tile)}
@@ -168,7 +171,7 @@ body.full .qtext{font-size:clamp(24px,5vh,48px)}
       <div><label>اسم الفريق الثاني</label><input id="n2" type="text" value="النمور" maxlength="20"></div>
     </div>
     <label style="margin-top:16px">اختر ٦ فئات <span id="cnt">(0/6)</span></label>
-    <div class="cats" id="catPick"></div>
+    <div id="catPick"></div>
     <button class="btn" id="start" disabled>ابدأ اللعب</button>
     <button class="btn ghost" id="rulesBtn">طريقة اللعب</button>
     <button class="linkbtn" id="srcBtn">المصادر</button>
@@ -311,9 +314,17 @@ async function initCloud(){
 function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.cats)return s}catch(e){}return null}
 
 /* setup */
+const GROUPS=[
+  {t:"ثقافة ومعرفة",k:["huroof","gk","isl","geo","his","lng","sci","tec","ani","cap","cur"]},
+  {t:"رياضة وترفيه",k:["spt","spl","big5","intl","fifa","anime"]},
+  {t:"السعودية والتحديات",k:["ksa","dial","where","drv","math","rid"]}];
 function drawPick(){
-  $("catPick").innerHTML=Object.entries(META).map(([k,c])=>
-    `<button class="cat-pick ${picked.includes(k)?"on":""}" data-k="${k}">${icon(k)}<span>${c.n}</span></button>`).join("");
+  const listed=new Set(GROUPS.flatMap(g=>g.k));
+  const extra=Object.keys(META).filter(k=>!listed.has(k));
+  const btn=k=>`<button class="cat-pick ${picked.includes(k)?"on":""}" data-k="${k}">${icon(k)}<span>${META[k].n}</span></button>`;
+  $("catPick").innerHTML=GROUPS.map((g,i)=>{
+    const ks=g.k.filter(k=>META[k]).concat(i===GROUPS.length-1?extra:[]);
+    return `<h4 class="ghead">${g.t}</h4><div class="cats">${ks.map(btn).join("")}</div>`}).join("");
   $("cnt").textContent=`(${toAr(picked.length)}/٦)`;
   $("start").disabled=picked.length!==6;
 }
