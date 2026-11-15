@@ -120,6 +120,30 @@ ART = {
 <path d="M24 34h22a8 8 0 1 1 16 0h22v22a8 8 0 1 0 0 16v22H24z" fill="#9b8cff"/>
 <path d="M84 34h22a8 8 0 1 0 16 0h22v60h-22a8 8 0 1 1-16 0H84V72a8 8 0 1 1 0-16z" fill="#ff9f43"/>
 <text class="t" x="54" y="80" fill="#ffffff" style="font-size:30px">؟</text>''',
+"mov": '''
+<rect x="22" y="40" width="96" height="58" rx="6" fill="#3b3f5c"/><path d="M22 40l8-18 92 0-4 18z" fill="#ffffff"/><path d="M40 22l-6 18M62 22l-6 18M84 22l-6 18M106 22l-6 18" fill="none"/>
+<path d="M58 56v28l24-14z" fill="#ffd166"/>
+<path d="M126 60h20l-4 40h-12z" fill="#ff7b7b"/><circle cx="130" cy="54" r="6" fill="#fff6d5"/><circle cx="140" cy="52" r="6" fill="#fff6d5"/><circle cx="135" cy="46" r="6" fill="#fff6d5"/>''',
+"vg": '''
+<rect x="44" y="12" width="72" height="90" rx="10" fill="#9be3b5"/><rect x="54" y="22" width="52" height="38" rx="4" fill="#3b3f5c"/>
+<path d="M64 46h8v-8h8v8h8" fill="none" stroke="#ffd166"/><path d="M60 78h14M67 71v14" fill="none"/><circle cx="96" cy="74" r="5" fill="#ff7b7b"/><circle cx="88" cy="84" r="5" fill="#7cc4ff"/>
+<path d="M18 30l8 8M142 30l-8 8M18 80l8-6M142 80l-8-6" fill="none"/>''',
+"kid": '''
+<path d="M30 98V54l20-14 20 14v44z" fill="#ff9f43"/><path d="M50 40l-24 16M50 40l24 16" fill="none"/>
+<rect x="84" y="62" width="34" height="34" rx="4" fill="#7cc4ff"/><text class="t" x="101" y="90" fill="#26233a">ب</text>
+<rect x="118" y="70" width="26" height="26" rx="4" fill="#ffd166"/><circle cx="50" cy="70" r="8" fill="#fff6d5"/>
+<path d="M118 34l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z" fill="#ffd23f"/><path d="M14 98h132" fill="none"/>''',
+"car": '''
+<path d="M22 76l8-20c3-6 8-10 16-10h50c8 0 14 4 18 10l14 16 12 4c4 1 6 4 6 8v8H22z" fill="#ff7b7b"/>
+<path d="M50 54h22v16H42zM80 54h18l12 16H80z" fill="#cdeaff"/>
+<circle cx="50" cy="92" r="12" fill="#3b3f5c"/><circle cx="50" cy="92" r="4" fill="#ffffff"/><circle cx="118" cy="92" r="12" fill="#3b3f5c"/><circle cx="118" cy="92" r="4" fill="#ffffff"/>
+<path d="M8 104h144" fill="none"/>''',
+"food": '''
+<ellipse cx="80" cy="84" rx="62" ry="16" fill="#ffffff"/>
+<path d="M36 80c0-24 20-40 44-40s44 16 44 40z" fill="#f2c14e"/>
+<path d="M50 64c6-4 12-2 16 2M78 56c6-4 12-2 16 2M98 68c6-4 12-2 16 2" fill="none"/>
+<path d="M62 40c-8-8-6-16 2-20 4 6 2 12-2 20zM84 34c-6-10 0-18 8-18 2 8-2 12-8 18z" fill="#5cbf72"/>
+<circle cx="66" cy="72" r="4" fill="#e85d5d"/><circle cx="92" cy="66" r="4" fill="#e85d5d"/><circle cx="106" cy="76" r="4" fill="#7a5c3a"/>''',
 }
 
 DESC = {
@@ -149,6 +173,11 @@ DESC = {
 "where": "من أي منطقة هذه العبارة أو الكلمة؟",
 "math": "مسائل حساب ذهني سريعة.",
 "rid": "ألغاز وفوازير تحتاج تفكير.",
+"mov": "أفلام عالمية مشهورة: ممثلون، شخصيات، وجوائز أوسكار.",
+"vg": "ألعاب الفيديو وأجهزتها وشخصياتها من أتاري إلى اليوم.",
+"kid": "أسئلة سهلة تناسب الأطفال ليشاركوا في اللعب.",
+"car": "شركات السيارات وشعاراتها وموديلاتها وسباقاتها.",
+"food": "أكلات سعودية وعربية وعالمية، وتمور وتوابل.",
 }
 
 if __name__ == "__main__":
