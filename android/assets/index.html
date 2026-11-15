@@ -175,6 +175,24 @@ body.full .qtext{font-size:clamp(24px,5vh,48px)}
 .win h2{font-size:30px;margin:8px 0}
 .rules li{margin:6px 18px 6px 0;color:var(--muted);line-height:1.6}
 .rules b{color:var(--text)}
+/* v2.1 flat, one colour for every category */
+.cat-pick,.col{--c:var(--brand)!important}
+.cico{background:var(--brand)!important}
+*,*::before,*::after{box-shadow:none!important;text-shadow:none!important}
+button:active{transform:none!important;opacity:.75}
+.q.used{transform:none}
+.cat-pick.on:active{opacity:1}
+.card,.team,.mid,.col,.ibtn{border:0}
+.ibtn,.btn.ghost,.tbtn,.adj button,.life{background:var(--panel2)}
+.topbar .ibtn{background:var(--panel)}
+.q{margin-bottom:0}
+.col{background:var(--panel)}
+body.dark .col{background:var(--panel)}
+.cat-pick{background:var(--panel2)}
+body.dark .cat-pick{background:var(--panel2)}
+.cat-pick.on{background:color-mix(in srgb,var(--brand) 14%,var(--panel))}
+.mhead .p{background:var(--gold)}
+.modal{border:0}
 </style>
 </head>
 <body>
