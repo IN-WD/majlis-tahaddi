@@ -105,7 +105,8 @@ def clean_text(t, freq, is_question, affected=False):
     for a, b in MANUAL.items(): s = s.replace(a, b)
     s = WORD.sub(lambda m: fix_lamalef(m.group(0), freq, affected), s)
     s = re.sub(r'^\(?\d{1,3}\s*[\(\)\-–]\s*(?=[ء-ي])', '', s)       # «24( وحدة…»
-    s = re.sub(r'^[\s:：.،,؛\-–]+', '', s)                                    # leading stray punctuation
+    s = re.sub(r'^[\s:：.،,؛\-–]+', '', s)   # leading stray punctuation
+    if not is_question: s = re.sub(r'^[أابجدهـ]\s*[-–)]\s*(?=\S)', '', s)   # leftover choice letters «ج- …»
     s = re.sub(r'(\s*[.…]){3,}', ' … ', s); s = re.sub(r'[.…]{2,}', '…', s)  # dot runs
     s = re.sub(r'\(\s+', '(', s); s = re.sub(r'\s+\)', ')', s)
     s = re.sub(r'\s+([،,:؟?!])', r'\1', s)
