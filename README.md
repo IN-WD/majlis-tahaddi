@@ -5,15 +5,15 @@
 An Arabic two-team quiz game: pick 6 categories, play 36 questions worth 200/400/600 points, with three lifelines per team. Runs in any browser and as an offline Android app.
 
 ## تحميل التطبيق · Download
-**[⬇️ majlis-alomda-v2.8.apk](release/majlis-alomda-v2.8.apk)** — Android 5.0+، يعمل بدون إنترنت.
+**[⬇️ majlis-alomda-v2.9.apk](release/majlis-alomda-v2.9.apk)** — Android 5.0+، يعمل بدون إنترنت.
 
 افتح الملف على جوالك ← اسمح بالتثبيت من هذا المصدر ← تثبيت. قد يظهر تحذير Play Protect لأن التطبيق من خارج المتجر: اختر «تثبيت على أي حال».
 
 Open the file on your phone → allow installs from this source → Install.
 
 ## المزايا · Features
-- ٣١ فئة: حروف، إيموجي أماكن وأسماء، إيموجي كرة قدم، إيموجي أنمي، إيموجي أمثال، ثقافة عامة، إسلاميات، جغرافيا، تاريخ، لغة عربية، علوم، تقنية، رياضة، عالم الحيوان، السعودية، لهجات سعودية، من وين العبارة؟، عواصم، عملات، حساب ذهني، ألغاز، دوري روشن، الدوريات الكبرى، بطولات المنتخبات، ألعاب فيفا، أنمي، أفلام عالمية، ألعاب فيديو، سيارات، أكلات، أسئلة للصغار
-- ~٧٨٠٠ سؤال بعد التدقيق اللغوي وحذف المكرر، تُسحب عشوائياً لكل لعبة، ولا يتكرر السؤال في نفس اللعبة ولا الأسئلة التي لُعبت على نفس الجهاز
+- ٣٣ فئة: حروف، إيموجي أماكن وأسماء، إيموجي كرة قدم، إيموجي أنمي، إيموجي أمثال، ثقافة عامة، إسلاميات، جغرافيا، تاريخ، لغة عربية، علوم، تقنية، رياضة، عالم الحيوان، السعودية، لهجات سعودية، من وين العبارة؟، عواصم، عملات، حساب ذهني، ألغاز، دوري روشن، الدوريات الكبرى، بطولات المنتخبات، ألعاب فيفا، أنمي، أنمي سبيستون، ون بيس وناروتو ودراغون بول، أفلام عالمية، ألعاب فيديو، سيارات، أكلات، أسئلة للصغار
+- ~٧٩٠٠ سؤال بعد التدقيق اللغوي وحذف المكرر، تُسحب عشوائياً لكل لعبة، ولا يتكرر السؤال في نفس اللعبة ولا الأسئلة التي لُعبت على نفس الجهاز
 - مؤقت ٦٠ ثانية للفريق صاحب الدور ثم ٣٠ ثانية للفريق الآخر
 - وسائل المساعدة: دبّل ×٢، الحفرة، وقت إضافي
 - حفظ تلقائي للعبة (النقاط، الدور، الأسئلة)
@@ -53,6 +53,7 @@ The question data is third-party content under its own licenses — **non-commer
 - حروف (Huroof-style): questions from the game's own bank whose answer is a single term, shown with the answer's first letter, plus ~350 original questions (mostly hard) so nearly every letter has 30 — `tools/huroof_hard.py` + `tools/letters_category.py` → `data/letters_ar.json`.
 - Emoji categories (إيموجي أماكن وأسماء / كرة قدم / أنمي / أمثال): 150 original emoji rebus puzzles with explanations and a hint button that halves the points — `tools/picture_category.py` → `data/pictures_ar.json`.
 - أفلام عالمية / ألعاب فيديو / سيارات / أكلات / أسئلة للصغار: 254 questions, 62 translated/adapted from OpenTriviaQA (CC BY-SA 4.0) and the rest written for this project — `tools/more_categories.py` → `data/more_ar.json`.
+- أنمي سبيستون / ون بيس وناروتو ودراغون بول: 129 questions — 8 adapted from **Open Trivia DB** (https://opentdb.com, CC BY-SA 4.0, via https://github.com/QuartzWarrior/OTDB-Source; wrong choices written for this project) and the rest original. Years, episode counts and studios checked against **anime-offline-database** (manami-project, https://github.com/manami-project/anime-offline-database, ODbL 1.0 / DbCL 1.0) — `tools/anime_more.py` → `data/anime_more_ar.json`.
 - About 50 other original questions.
 - Font: **Tajawal** (Boutros Fonts / Mourad Boutros), SIL Open Font License 1.1 — `android/assets/fonts/OFL-LICENSE.txt`.
 
