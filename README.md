@@ -5,14 +5,14 @@
 An Arabic two-team quiz game: pick 6 categories, play 36 questions worth 200/400/600 points, with three lifelines per team. Runs in any browser and as an offline Android app.
 
 ## تحميل التطبيق · Download
-**[⬇️ majlis-alomda-v2.4.apk](release/majlis-alomda-v2.4.apk)** — Android 5.0+، يعمل بدون إنترنت.
+**[⬇️ majlis-alomda-v2.5.apk](release/majlis-alomda-v2.5.apk)** — Android 5.0+، يعمل بدون إنترنت.
 
 افتح الملف على جوالك ← اسمح بالتثبيت من هذا المصدر ← تثبيت. قد يظهر تحذير Play Protect لأن التطبيق من خارج المتجر: اختر «تثبيت على أي حال».
 
 Open the file on your phone → allow installs from this source → Install.
 
 ## المزايا · Features
-- ٢٤ فئة: حروف، خمن من الإيموجي، ثقافة عامة، إسلاميات، جغرافيا، تاريخ، لغة عربية، علوم، تقنية، رياضة، عالم الحيوان، السعودية، لهجات سعودية، من وين العبارة؟، عواصم، عملات، حساب ذهني، ألغاز، قيادة ومرور، دوري روشن، الدوريات الكبرى، بطولات المنتخبات، ألعاب فيفا، أنمي
+- ٢٦ فئة: حروف، إيموجي أماكن وأسماء، إيموجي كرة قدم، إيموجي أنمي، إيموجي أمثال، ثقافة عامة، إسلاميات، جغرافيا، تاريخ، لغة عربية، علوم، تقنية، رياضة، عالم الحيوان، السعودية، لهجات سعودية، من وين العبارة؟، عواصم، عملات، حساب ذهني، ألغاز، دوري روشن، الدوريات الكبرى، بطولات المنتخبات، ألعاب فيفا، أنمي
 - ~٨١٦٠ سؤال، تُسحب عشوائياً لكل لعبة، ولا تتكرر الأسئلة التي لُعبت على نفس الجهاز
 - مؤقت ٦٠ ثانية للفريق صاحب الدور ثم ٣٠ ثانية للفريق الآخر
 - وسائل المساعدة: دبّل ×٢، الحفرة، وقت إضافي
@@ -51,7 +51,7 @@ The question data is third-party content under its own licenses — **non-commer
 - **openfootball** — https://github.com/openfootball/football.json — CC0 (public domain). League tables computed from match results → `data/openfootball_champions.json`. Football questions (Saudi Pro League, big leagues, Champions League, Ballon d'Or, national-team tournaments, FIFA/EA FC games) are written from facts in `tools/football_categories.py` → `data/football_ar.json`.
 - Anime: original questions written for this project plus 23 translated/adapted from OpenTriviaQA (CC BY-SA 4.0) — text only, no images or lyrics — `tools/anime_category.py` → `data/anime_ar.json`.
 - حروف (Huroof-style): questions from the game's own bank whose answer is a single term, shown with the answer's first letter, plus ~350 original questions (mostly hard) so nearly every letter has 30 — `tools/huroof_hard.py` + `tools/letters_category.py` → `data/letters_ar.json`.
-- خمن من الإيموجي: 106 original emoji rebus puzzles (wordplay names, places, traditional proverbs, football, anime) with explanations and a hint button that halves the points — `tools/picture_category.py` → `data/pictures_ar.json`.
+- Emoji categories (إيموجي أماكن وأسماء / كرة قدم / أنمي / أمثال): 150 original emoji rebus puzzles with explanations and a hint button that halves the points — `tools/picture_category.py` → `data/pictures_ar.json`.
 - About 50 other original questions.
 - Font: **Tajawal** (Boutros Fonts / Mourad Boutros), SIL Open Font License 1.1 — `android/assets/fonts/OFL-LICENSE.txt`.
 
