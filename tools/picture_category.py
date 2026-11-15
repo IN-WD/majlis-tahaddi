@@ -1,4 +1,4 @@
-"""احزر الصورة — original emoji rebus puzzles (wordplay, places, proverbs, football, anime).
+"""خمن من الإيموجي — original emoji rebus puzzles (wordplay, places, proverbs, football, anime).
 Each item: (level, emoji, answer, explanation). Proverbs are traditional sayings; no images of characters are used.
 Output: data/pictures_ar.json  →  {"pics": {"200": [["🖼|emoji", answer, note], ...], ...}}"""
 import json, sys
