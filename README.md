@@ -5,7 +5,7 @@
 An Arabic two-team quiz game: pick 6 categories, play 36 questions worth 200/400/600 points, with three lifelines per team. Runs in any browser and as an offline Android app.
 
 ## تحميل التطبيق · Download
-**[⬇️ majlis-tahaddi-v1.5.apk](release/majlis-tahaddi-v1.5.apk)** — Android 5.0+، يعمل بدون إنترنت.
+**[⬇️ majlis-tahaddi-v1.6.apk](release/majlis-tahaddi-v1.6.apk)** — Android 5.0+، يعمل بدون إنترنت.
 
 افتح الملف على جوالك ← اسمح بالتثبيت من هذا المصدر ← تثبيت. قد يظهر تحذير Play Protect لأن التطبيق من خارج المتجر: اختر «تثبيت على أي حال».
 
@@ -13,7 +13,7 @@ Open the file on your phone → allow installs from this source → Install.
 
 ## المزايا · Features
 - ٢٣ فئة: حروف، ثقافة عامة، إسلاميات، جغرافيا، تاريخ، لغة عربية، علوم، تقنية، رياضة، عالم الحيوان، السعودية، لهجات سعودية، من وين العبارة؟، عواصم، عملات، حساب ذهني، ألغاز، قيادة ومرور، دوري روشن، الدوريات الكبرى، بطولات المنتخبات، ألعاب فيفا، أنمي
-- ~٧٨٠٠ سؤال، تُسحب عشوائياً لكل لعبة، ولا تتكرر الأسئلة التي لُعبت على نفس الجهاز
+- ~٨٠٥٠ سؤال، تُسحب عشوائياً لكل لعبة، ولا تتكرر الأسئلة التي لُعبت على نفس الجهاز
 - مؤقت ٦٠ ثانية للفريق صاحب الدور ثم ٣٠ ثانية للفريق الآخر
 - وسائل المساعدة: دبّل ×٢، الحفرة، وقت إضافي
 - حفظ تلقائي للعبة (النقاط، الدور، الأسئلة)
@@ -50,7 +50,7 @@ The question data is third-party content under its own licenses — **non-commer
 - **Absher** (Al-Monef et al., 2025) — https://huggingface.co/datasets/Renad10/Absher-Benchmark — CC BY 4.0. Saudi dialect phrases: meaning questions (re-shuffled, filtered against the dictionary meaning) and region questions built from the dataset's dialect labels — `tools/absher_categories.py` → `data/absher_ar.json`.
 - **openfootball** — https://github.com/openfootball/football.json — CC0 (public domain). League tables computed from match results → `data/openfootball_champions.json`. Football questions (Saudi Pro League, big leagues, Champions League, Ballon d'Or, national-team tournaments, FIFA/EA FC games) are written from facts in `tools/football_categories.py` → `data/football_ar.json`.
 - Anime: original questions written for this project plus 23 translated/adapted from OpenTriviaQA (CC BY-SA 4.0) — text only, no images or lyrics — `tools/anime_category.py` → `data/anime_ar.json`.
-- حروف (Huroof-style): questions from the game's own bank whose answer is a single term, shown with the answer's first letter, plus ~60 original questions for rare letters — `tools/letters_category.py` → `data/letters_ar.json`.
+- حروف (Huroof-style): questions from the game's own bank whose answer is a single term, shown with the answer's first letter, plus ~350 original questions (mostly hard) so nearly every letter has 30 — `tools/huroof_hard.py` + `tools/letters_category.py` → `data/letters_ar.json`.
 - About 50 other original questions.
 - Font: **Tajawal** (Boutros Fonts / Mourad Boutros), SIL Open Font License 1.1 — `android/assets/fonts/OFL-LICENSE.txt`.
 

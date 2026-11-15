@@ -3,7 +3,9 @@ Each question is shown with the first letter of its answer (ignoring a leading �
    حرف «ق»: ما عاصمة مصر؟  → القاهرة
 Only short, single-term answers from fact categories are used. Output: data/letters_ar.json
 Usage: python3 tools/letters_category.py web/index.html data/letters_ar.json"""
-import json, re, sys, collections, random
+import json, re, sys, collections, random, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from huroof_hard import HARD
 
 SRC = ["gk","geo","his","isl","sci","lng","ani","cap","cur","ksa","spl","big5","intl","anime","tec","spt"]
 AR_LET = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي"
@@ -20,7 +22,7 @@ def first_letter(ans):
 EXTRA = [
  ("200","ث","حيوان يُضرب به المثل في المكر والحيلة؟","الثعلب"),("200","ث","ما اسم الماء في حالته الصلبة؟","الثلج"),
  ("200","ث","نبات ذو رائحة نفّاذة يُستخدم في الطبخ ويُعرف بفوائده للمناعة؟","الثوم"),("400","ث","من هم قوم النبي صالح عليه السلام؟","ثمود"),
- ("400","ث","ما اسم الغار الذي اختبأ فيه النبي ﷺ وأبو بكر أثناء الهجرة؟","غار ثور"),("600","ث","أي قبيلة عربية كانت تسكن الطائف قديماً؟","ثقيف"),
+ ("400","غ","ما اسم الغار الذي اختبأ فيه النبي ﷺ وأبو بكر أثناء الهجرة؟","غار ثور"),("600","ث","أي قبيلة عربية كانت تسكن الطائف قديماً؟","ثقيف"),
  ("600","ث","ما الاسم العربي لعنقود النجوم المشهور (Pleiades)؟","الثريا"),
  ("200","ذ","ما المعدن النفيس الأصفر الذي رمزه الكيميائي Au؟","الذهب"),("200","ذ","في أي شهر هجري يؤدي المسلمون الحج؟","ذو الحجة"),
  ("400","ذ","من الملك الذي ذُكرت قصته في سورة الكهف وبنى سداً عظيماً؟","ذو القرنين"),("400","ذ","أي حيوان اتّهم إخوةُ يوسف أنه أكله؟","الذئب"),
@@ -76,8 +78,12 @@ def main(html, dst):
                 else:
                     out[lvl].append([q, ans])
                 per[L] += 1
-    for lvl, L, q, a in EXTRA:
-        out[lvl].append([f"حرف «{L}»: {q}", a]); per[L] += 1
+    bad = []
+    for lvl, L, q, a in EXTRA + HARD:
+        if first_letter(a) != L: bad.append((L, a)); continue
+        if q in seen: continue
+        seen.add(q); out[lvl].append([f"حرف «{L}»: {q}", a]); per[L] += 1
+    if bad: print("LETTER MISMATCH:", bad)
     json.dump({"huroof": out}, open(dst, "w"), ensure_ascii=False, indent=0)
     print({p: len(v) for p, v in out.items()}, "total", sum(per.values()))
     print(" ".join(f"{l}:{per[l]}" for l in "أ" + AR_LET[1:]))
