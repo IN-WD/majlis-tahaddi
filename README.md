@@ -1,11 +1,11 @@
-# مجلس التحدي — Majlis Tahaddi
+# مجلس العمدة — Majlis Al-Omda
 
 لعبة أسئلة جماعية عربية بين فريقين: ٦ فئات، ٣٦ سؤالاً، و٣ وسائل مساعدة لكل فريق. تعمل في المتصفح وكتطبيق أندرويد بدون إنترنت.
 
 An Arabic two-team quiz game: pick 6 categories, play 36 questions worth 200/400/600 points, with three lifelines per team. Runs in any browser and as an offline Android app.
 
 ## تحميل التطبيق · Download
-**[⬇️ majlis-tahaddi-v2.3.apk](release/majlis-tahaddi-v2.3.apk)** — Android 5.0+، يعمل بدون إنترنت.
+**[⬇️ majlis-alomda-v2.4.apk](release/majlis-alomda-v2.4.apk)** — Android 5.0+، يعمل بدون إنترنت.
 
 افتح الملف على جوالك ← اسمح بالتثبيت من هذا المصدر ← تثبيت. قد يظهر تحذير Play Protect لأن التطبيق من خارج المتجر: اختر «تثبيت على أي حال».
 
