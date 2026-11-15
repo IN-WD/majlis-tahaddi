@@ -172,8 +172,8 @@ body.full .qtext{font-size:clamp(24px,5vh,48px)}
 .rules li{margin:6px 18px 6px 0;color:var(--muted);line-height:1.6}
 .rules b{color:var(--text)}
 /* v2.1 flat, one colour for every category */
-.cat-pick,.col{--c:var(--brand)!important}
-.cico{background:var(--brand)!important}
+.ghead{color:var(--c)}
+.ghead::before{background:var(--c)}
 *,*::before,*::after{box-shadow:none!important;text-shadow:none!important}
 button:active{transform:none!important;opacity:.75}
 .q.used{transform:none}
@@ -186,7 +186,7 @@ button:active{transform:none!important;opacity:.75}
 body.dark .col{background:var(--panel)}
 .cat-pick{background:var(--panel2)}
 body.dark .cat-pick{background:var(--panel2)}
-.cat-pick.on{background:color-mix(in srgb,var(--brand) 14%,var(--panel))}
+.cat-pick.on{background:color-mix(in srgb,var(--c) 14%,var(--panel))}
 .mhead .p{background:var(--gold)}
 .modal{border:0}
 </style>
@@ -356,16 +356,17 @@ function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.cats)r
 
 /* setup */
 const GROUPS=[
-  {t:"ثقافة ومعرفة",k:["huroof","gk","isl","geo","his","lng","sci","tec","ani","cap","cur"]},
-  {t:"رياضة وترفيه",k:["spt","spl","big5","intl","fifa","anime"]},
-  {t:"السعودية والتحديات",k:["pics","ksa","dial","where","drv","math","rid"]}];
+  {t:"ثقافة ومعرفة",c:"#6b4ef6",k:["huroof","gk","isl","geo","his","lng","sci","tec","ani","cap","cur"]},
+  {t:"رياضة وترفيه",c:"#1f7ae0",k:["spt","spl","big5","intl","fifa","anime"]},
+  {t:"السعودية والتحديات",c:"#ee6a10",k:["pics","ksa","dial","where","drv","math","rid"]}];
+function gc(k){const g=GROUPS.find(g=>g.k.includes(k))||GROUPS[GROUPS.length-1];return g.c}
 function drawPick(){
   const listed=new Set(GROUPS.flatMap(g=>g.k));
   const extra=Object.keys(META).filter(k=>!listed.has(k));
-  const btn=k=>`<button class="cat-pick ${picked.includes(k)?"on":""}" data-k="${k}" style="--c:${(ICONS[k]||["#888"])[0]}">${icon(k)}<span>${META[k].n}</span></button>`;
+  const btn=k=>`<button class="cat-pick ${picked.includes(k)?"on":""}" data-k="${k}" style="--c:${gc(k)}">${icon(k)}<span>${META[k].n}</span></button>`;
   $("catPick").innerHTML=GROUPS.map((g,i)=>{
     const ks=g.k.filter(k=>META[k]).concat(i===GROUPS.length-1?extra:[]);
-    return `<h4 class="ghead">${g.t}</h4><div class="cats">${ks.map(btn).join("")}</div>`}).join("");
+    return `<h4 class="ghead" style="--c:${g.c}">${g.t}</h4><div class="cats">${ks.map(btn).join("")}</div>`}).join("");
   $("cnt").textContent=`(${toAr(picked.length)}/٦)`;
   $("start").disabled=picked.length!==6;
 }
@@ -401,7 +402,7 @@ function drawGame(){
   $("left").textContent=toAr(left);
   $("board").innerHTML=S.cats.map(k=>{
     const c=META[k];
-    return `<div class="col" style="--c:${(ICONS[k]||["#888"])[0]}"><h3>${icon(k)}<span>${c.n}</span></h3>`+
+    return `<div class="col" style="--c:${gc(k)}"><h3>${icon(k)}<span>${c.n}</span></h3>`+
       S.qs[k].map((q,i)=>{const id=k+i,u=S.used[id];
         return u!==undefined
           ?`<button class="q used ${u===1?"w1":u===2?"w2":""}">${u===0?"—":S.names[u-1]}</button>`
@@ -534,7 +535,7 @@ function showWin(){
 const ICONS={"pics":["#ef6c00","<rect x=\"3.5\" y=\"4.5\" width=\"17\" height=\"15\" rx=\"2.5\"/><circle cx=\"9\" cy=\"10\" r=\"1.8\"/><path d=\"m4 17 5-4.5 3.5 3 3-2.5 4.5 4\"/>"],"huroof":["#0d7c8c","<rect x=\"3.5\" y=\"3.5\" width=\"17\" height=\"17\" rx=\"4\"/><text x=\"12\" y=\"16.6\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"800\" font-family=\"Tajawal,sans-serif\" fill=\"currentColor\" stroke=\"none\">ح</text>"],"gk": ["#f0a020", "<path d=\"M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z\"/>"], "isl": ["#1f8a70", "<path d=\"M3 21h18M5 21v-7h14v7M12 4.5C8.5 6.5 6 9.5 6 14h12c0-4.5-2.5-7.5-6-9.5zM12 2v2.5\"/>"], "geo": ["#2d7dd2", "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18\"/>"], "his": ["#a0602d", "<path d=\"M3 21h18M12 3 4 8h16zM6.5 8v10M12 8v10M17.5 8v10M4 18h16\"/>"], "lng": ["#6c5ce7", "<path d=\"M4 20l4-1 11-11a2.1 2.1 0 0 0-3-3L5 16z\"/><path d=\"M14 6l3 3\"/>"], "sci": ["#00a3a3", "<path d=\"M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3M7 15h10\"/>"], "tec": ["#3d5a80", "<rect x=\"4\" y=\"5\" width=\"16\" height=\"11\" rx=\"1.5\"/><path d=\"M2 19h20\"/>"], "spt": ["#e67e22", "<circle cx=\"12\" cy=\"15\" r=\"5\"/><path d=\"M8.5 11 6 3h4l2 5 2-5h4l-2.5 8\"/>"], "spl": ["#0b8f3a", "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"m12 7.5 3.8 2.8-1.4 4.4H9.6l-1.4-4.4zM12 7.5V3.2M15.8 10.3l4-1.2M14.4 14.7l2.4 3.6M9.6 14.7l-2.4 3.6M8.2 10.3l-4-1.2\"/>"], "big5": ["#c48a12", "<path d=\"M8 4h8v5a4 4 0 0 1-8 0zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M9.5 17h5\"/>"], "intl": ["#00838f", "<path d=\"M5 21V4M5 4h12l-2.5 4 2.5 4H5\"/>"], "fifa": ["#5e35b1", "<path d=\"M7 8h10a4 4 0 0 1 4 4.5l-.5 3A2.5 2.5 0 0 1 16 17l-2-2h-4l-2 2a2.5 2.5 0 0 1-4.5-1.5l-.5-3A4 4 0 0 1 7 8zM8 10.5v3M6.5 12h3\"/><circle cx=\"16\" cy=\"11\" r=\".9\" fill=\"currentColor\"/><circle cx=\"17.6\" cy=\"13.3\" r=\".9\" fill=\"currentColor\"/>"], "anime": ["#d81b60", "<path d=\"M12 2.8l1.9 3.3 3.7-1-.6 3.8 3.5 1.6-3 2.5 1.6 3.5-3.8-.2-1 3.7L12 18l-2.3 1.9-1-3.7-3.8.2 1.6-3.5-3-2.5 3.5-1.6-.6-3.8 3.7 1zM12 8.6v3.6\"/><circle cx=\"12\" cy=\"14.6\" r=\".9\" fill=\"currentColor\"/>"], "ani": ["#8d6e63", "<ellipse cx=\"12\" cy=\"16\" rx=\"4.5\" ry=\"3.6\"/><circle cx=\"6\" cy=\"10.5\" r=\"1.8\"/><circle cx=\"9.6\" cy=\"6.6\" r=\"1.8\"/><circle cx=\"14.4\" cy=\"6.6\" r=\"1.8\"/><circle cx=\"18\" cy=\"10.5\" r=\"1.8\"/>"], "ksa": ["#108a4a", "<path d=\"M12 21v-9M8 21h8M12 12c-1-3-4-4.2-7-3.2M12 12c1-3 4-4.2 7-3.2M12 12C9.8 10 9.6 6 12 3.5M12 12c2.2-2 2.4-6 0-8.5\"/>"], "dial": ["#c2185b", "<path d=\"M4 4h10a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM19 8h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2v3l-3-3h-5\"/>"], "where": ["#e53935", "<path d=\"M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z\"/><circle cx=\"12\" cy=\"9\" r=\"2.5\"/>"], "cap": ["#3949ab", "<path d=\"M3 21h18M5 21V10h4v11M9 21V5h6v16M15 21v-8h4v8M11.5 8h1M11.5 11h1M11.5 14h1\"/>"], "cur": ["#c79a00", "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2s1.3 1.7 3 2 3 .9 3 2-1.3 2-3 2c-1.4 0-2.5-.5-3-1.5M12 6v2M12 16v2\"/>"], "math": ["#00897b", "<path d=\"M5 7h5M7.5 4.5v5M14 7h5M5.5 15.5l4 4M9.5 15.5l-4 4M14 16h5M14 19.5h5\"/>"], "rid": ["#7b1fa2", "<path d=\"M9.1 9a3 3 0 1 1 4.3 2.7c-.8.4-1.4 1.1-1.4 2V15\"/><circle cx=\"12\" cy=\"18.5\" r=\"1\" fill=\"currentColor\"/>"], "drv": ["#546e7a", "<path d=\"M5 16h14M3 16v-4l2.5-5h13L21 12v4M5 16v3M19 16v3\"/><circle cx=\"7.5\" cy=\"13\" r=\"1\"/><circle cx=\"16.5\" cy=\"13\" r=\"1\"/>"]};
 const UI={"moon": "<path d=\"M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z\"/>", "sun": "<circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4\"/>", "full": "<path d=\"M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5\"/>", "unfull": "<path d=\"M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5\"/>", "rot": "<path d=\"M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16M20 20v-4h-4\"/>", "cast": "<path d=\"M3 8V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6M3 12a8 8 0 0 1 8 8M3 16a4 4 0 0 1 4 4\"/><circle cx=\"3.5\" cy=\"19.5\" r=\".9\" fill=\"currentColor\"/>"};
 function svg(p){return '<svg viewBox="0 0 24 24">'+p+'</svg>'}
-function icon(k){const c=ICONS[k]||["#888",""];return '<span class="cico" style="background:'+c[0]+'">'+svg(c[1])+'</span>'}
+function icon(k){const c=ICONS[k]||["#888",""];return '<span class="cico" style="background:'+gc(k)+'">'+svg(c[1])+'</span>'}
 function toast(t){const el=$("toast");el.textContent=t;el.classList.remove("hidden");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.add("hidden"),2200)}
 /* theme: light by default */
 function setTheme(dark){document.body.classList.toggle("dark",dark);$("themeBtn").innerHTML=svg(dark?UI.sun:UI.moon);
