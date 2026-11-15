@@ -5,7 +5,7 @@
 An Arabic two-team quiz game: pick 6 categories, play 36 questions worth 200/400/600 points, with three lifelines per team. Runs in any browser and as an offline Android app.
 
 ## تحميل التطبيق · Download
-**[⬇️ majlis-tahaddi-v1.3.apk](release/majlis-tahaddi-v1.3.apk)** — Android 5.0+، يعمل بدون إنترنت.
+**[⬇️ majlis-tahaddi-v1.4.apk](release/majlis-tahaddi-v1.4.apk)** — Android 5.0+، يعمل بدون إنترنت.
 
 افتح الملف على جوالك ← اسمح بالتثبيت من هذا المصدر ← تثبيت. قد يظهر تحذير Play Protect لأن التطبيق من خارج المتجر: اختر «تثبيت على أي حال».
 
@@ -18,6 +18,8 @@ Open the file on your phone → allow installs from this source → Install.
 - وسائل المساعدة: دبّل ×٢، الحفرة، وقت إضافي
 - حفظ تلقائي للعبة (النقاط، الدور، الأسئلة)
 - وضع ملء الشاشة للتلفاز والآيباد
+- تصميم مسطّح مع وضع نهاري (افتراضي) ووضع ليلي، وأيقونات مرسومة لكل فئة
+- في التطبيق: زر بث الشاشة إلى التلفاز (Smart View) وزر تدوير الشاشة
 
 ## هيكل المشروع · Layout
 | Path | What |

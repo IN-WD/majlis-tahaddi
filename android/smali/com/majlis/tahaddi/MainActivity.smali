@@ -53,6 +53,11 @@
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(Landroid/view/View;)V
 
+    new-instance v1, Lcom/majlis/tahaddi/Bridge;
+    invoke-direct {v1, p0}, Lcom/majlis/tahaddi/Bridge;-><init>(Landroid/app/Activity;)V
+    const-string v2, "MajlisNative"
+    invoke-virtual {v0, v1, v2}, Landroid/webkit/WebView;->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
+
     const-string v1, "file:///android_asset/index.html"
     invoke-virtual {v0, v1}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
