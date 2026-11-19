@@ -345,6 +345,13 @@ h1{letter-spacing:-.5px}
 .cat-pick.on::after{width:22px;height:22px;font-size:12px;top:4px;right:4px;border-width:1.5px}
 .ghead{margin:16px 0 8px;font-size:17px}
 @media (min-width:700px){.cats{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}}
+/* v3.2 TV mode: light rendering for screen casting */
+body.tv *,body.tv *::before,body.tv *::after{animation:none!important;transition:none!important}
+body.tv .ov{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body.tv{background-image:none!important;background-attachment:scroll!important}
+body.tv .emblem{display:none}
+#tvBtn .on{margin-inline-start:auto;font-size:12px;font-weight:800;color:#fff;background:var(--t1);border-radius:999px;padding:2px 9px}
+#tvBtn .off{margin-inline-start:auto;font-size:12px;font-weight:800;color:var(--muted);background:var(--panel2);border-radius:999px;padding:2px 9px}
 </style>
 </head>
 <body>
@@ -365,6 +372,7 @@ h1{letter-spacing:-.5px}
   <button class="mitem" id="fsBtn" title="ملء الشاشة"></button>
   <button class="mitem" id="rotBtn" title="تدوير الشاشة"></button>
   <button class="mitem hidden" id="castBtn" title="عرض على التلفاز"></button>
+  <button class="mitem" id="tvBtn" data-keep="1"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>وضع التلفاز (بث أخفّ)</span><b class="off">إيقاف</b></button>
   <div class="dsec gonly">اللعبة</div>
   <button class="mitem gonly" id="swap"><svg viewBox="0 0 24 24"><path d="M7 7h12l-3-3M17 17H5l3 3"/></svg><span>تبديل الدور</span></button>
   <button class="mitem gonly" id="reset"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg><span>لعبة جديدة</span></button>
@@ -740,7 +748,13 @@ async function rotate(){
 $("rotBtn").innerHTML=svg(UI.rot);$("rotBtn").onclick=rotate;
 /* cast (Android app: opens screen mirroring) */
 $("castBtn").innerHTML=svg(UI.cast);
-if(NATIVE&&NATIVE.cast){$("castBtn").classList.remove("hidden");$("castBtn").onclick=()=>{try{NATIVE.cast()}catch(e){toast("تعذّر فتح إعدادات البث")}}}
+if(NATIVE&&NATIVE.cast){$("castBtn").classList.remove("hidden");$("castBtn").onclick=()=>{setTV(true);try{NATIVE.cast()}catch(e){toast("تعذّر فتح إعدادات البث")}}}
+
+/* TV mode */
+function setTV(on){document.body.classList.toggle("tv",on);const b=$("tvBtn").querySelector("b");b.className=on?"on":"off";b.textContent=on?"تشغيل":"إيقاف";
+  try{localStorage.setItem("majlis-tv",on?"1":"0")}catch(e){}}
+$("tvBtn").onclick=()=>{const on=!document.body.classList.contains("tv");setTV(on);toast(on?"وضع التلفاز: حركات أقل لبث أسلس":"تم إيقاف وضع التلفاز")};
+(function(){let on=false;try{on=localStorage.getItem("majlis-tv")==="1"}catch(e){}setTV(on)})();
 /* full screen */
 function isFs(){return !!(document.fullscreenElement||document.webkitFullscreenElement)}
 function fsLabel(){fsIcon()}
@@ -767,7 +781,7 @@ $("fsBtn").onclick=toggleFs;fsIcon();
 function menu(open){$("drawer").classList.toggle("open",open);$("dov").classList.toggle("hidden",!open);$("drawer").setAttribute("aria-hidden",!open);
   if(open){const g=!$("game").classList.contains("hidden");document.querySelectorAll(".gonly").forEach(e=>e.classList.toggle("hidden",!g))}}
 $("menuBtn").onclick=()=>menu(true);$("menuX").onclick=$("dov").onclick=()=>menu(false);
-$("drawer").addEventListener("click",e=>{const b=e.target.closest(".mitem");if(b&&b.id!=="themeBtn")menu(false)});
+$("drawer").addEventListener("click",e=>{const b=e.target.closest(".mitem");if(b&&b.id!=="themeBtn"&&b.id!=="tvBtn")menu(false)});
 
 $("srcBtn").onclick=()=>info(SOURCES);
 document.addEventListener("fullscreenchange",()=>{if(!isFs()&&document.body.classList.contains("full")){document.body.classList.remove("full");fsLabel()}});
@@ -779,13 +793,13 @@ initCloud();
 <script>
 /* v3.0 motion */
 (function(){
-const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const RM0=matchMedia("(prefers-reduced-motion: reduce)").matches;const RM=()=>RM0||document.body.classList.contains("tv");
 const sp=document.getElementById("splash");
 const hideSplash=()=>sp&&sp.classList.add("gone");
-setTimeout(hideSplash,RM?50:1500);sp&&sp.addEventListener("click",hideSplash);
+setTimeout(hideSplash,RM()?50:1500);sp&&sp.addEventListener("click",hideSplash);
 const COLORS=["#6b4ef6","#1f7ae0","#ee6a10","#10b981","#ff5d7a","#ffb21e"];
 function confetti(x,y,n,spread){
-  if(RM)return;
+  if(RM())return;
   for(let i=0;i<n;i++){
     const d=document.createElement("div");d.className="conf";d.style.background=COLORS[i%COLORS.length];
     d.style.left=x+"px";d.style.top=y+"px";document.body.appendChild(d);
@@ -800,13 +814,13 @@ function confetti(x,y,n,spread){
 window.confetti=confetti;
 function center(el){const r=el.getBoundingClientRect();return [r.left+r.width/2,r.top+r.height/2]}
 function countUp(el,from,to){
-  if(RM||from===to){el.textContent=to;return}
+  if(RM()||from===to){el.textContent=to;return}
   const t0=performance.now(),dur=700;
   (function step(t){const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e);
     if(k<1)requestAnimationFrame(step);else{el.textContent=to;el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump")}})(t0);
 }
 function fly(text,toEl){
-  if(RM)return Promise.resolve();
+  if(RM())return Promise.resolve();
   const f=document.createElement("div");f.className="flypts";f.textContent=text;document.body.appendChild(f);
   const [x0,y0]=[innerWidth/2,innerHeight/2],[x1,y1]=center(toEl);
   const w=f.offsetWidth,h=f.offsetHeight;f.style.left=(x0-w/2)+"px";f.style.top=(y0-h/2)+"px";
@@ -835,7 +849,7 @@ openQ=function(id){const t=document.querySelector('.q[data-id="'+id+'"]'),m=docu
 const _aw=award;
 award=function(w){
   const before=S.pts.slice(),id=cur&&cur.id;_aw(w);
-  const used=id&&document.querySelector('#board .q[data-u="'+id+'"]');if(used&&!RM)used.classList.add("just");
+  const used=id&&document.querySelector('#board .q[data-u="'+id+'"]');if(used&&!RM())used.classList.add("just");
   const els=[document.getElementById("tp1"),document.getElementById("tp2")];
   els.forEach((el,i)=>el.textContent=before[i]);
   const go=()=>els.forEach((el,i)=>countUp(el,before[i],S.pts[i]));
@@ -844,7 +858,7 @@ award=function(w){
   else go();
 };
 const _sw=showWin;
-showWin=function(){_sw();if(!RM){confetti(innerWidth/2,innerHeight*.3,90,260);setTimeout(()=>confetti(innerWidth*.25,innerHeight*.35,50,200),350);setTimeout(()=>confetti(innerWidth*.75,innerHeight*.35,50,200),650)}};
+showWin=function(){_sw();if(!RM()){confetti(innerWidth/2,innerHeight*.3,90,260);setTimeout(()=>confetti(innerWidth*.25,innerHeight*.35,50,200),350);setTimeout(()=>confetti(innerWidth*.75,innerHeight*.35,50,200),650)}};
 })();
 </script>
 </body>
