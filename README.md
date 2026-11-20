@@ -11,7 +11,7 @@ An Arabic two-team quiz game: pick 6 categories, play 36 questions worth 200/400
 - الخطوط: Lalezar للعناوين والأرقام، Tajawal للأسئلة (كلاهما OFL)
 
 ## تحميل التطبيق · Download
-**[⬇️ markaz-alomda-v4.0.apk](release/markaz-alomda-v4.0.apk)** — Android 5.0+، يعمل بدون إنترنت.
+**[⬇️ markaz-alomda-v4.1.apk](release/markaz-alomda-v4.1.apk)** — Android 5.0+، يعمل بدون إنترنت.
 
 افتح الملف على جوالك ← اسمح بالتثبيت من هذا المصدر ← تثبيت. قد يظهر تحذير Play Protect لأن التطبيق من خارج المتجر: اختر «تثبيت على أي حال».
 
