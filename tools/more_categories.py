@@ -276,7 +276,7 @@ FOOD = [
 ("600","ما الفاكهة ذات الرائحة النفّاذة الملقّبة بـ«ملك الفواكه» في جنوب شرق آسيا؟","الدوريان",["الجاك فروت","الرامبوتان","المانغوستين"],""),
 ]
 
-CATS = {"mov": MOV, "vg": VG, "kid": KID, "car": CAR, "food": FOOD}
+CATS = {"mov": MOV, "vg": VG, "car": CAR, "food": FOOD}   # KID removed from the game in v3.3
 
 def main(dst):
     rnd = random.Random(2026)
