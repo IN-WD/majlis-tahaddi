@@ -26,6 +26,7 @@ for p in sys.argv[1:]:
     for k in ['emp', 'emf', 'ema', 'emo']:
         for lv, qs in B[k].items():
             for i, q in enumerate(qs):
+                if len(q[0].split('|')) > 2: continue
                 lab = 'مثل' if k == 'emo' else L[k][lv][i]
                 parts = q[0].split('|')
                 q[0] = '|'.join(parts[:2] + [lab]); n += 1

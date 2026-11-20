@@ -11,14 +11,14 @@ An Arabic two-team quiz game: pick 6 categories, play 36 questions worth 200/400
 - الخطوط: Lalezar للعناوين والأرقام، Tajawal للأسئلة (كلاهما OFL)
 
 ## تحميل التطبيق · Download
-**[⬇️ markaz-alomda-v4.1.apk](release/markaz-alomda-v4.1.apk)** — Android 5.0+، يعمل بدون إنترنت.
+**[⬇️ markaz-alomda-v4.2.apk](release/markaz-alomda-v4.2.apk)** — Android 5.0+، يعمل بدون إنترنت.
 
 افتح الملف على جوالك ← اسمح بالتثبيت من هذا المصدر ← تثبيت. قد يظهر تحذير Play Protect لأن التطبيق من خارج المتجر: اختر «تثبيت على أي حال».
 
 Open the file on your phone → allow installs from this source → Install.
 
 ## المزايا · Features
-- ٣٢ فئة: حروف، إيموجي أماكن وأسماء، إيموجي كرة قدم، إيموجي أنمي، إيموجي أمثال، ثقافة عامة، إسلاميات، جغرافيا، تاريخ، لغة عربية، علوم، تقنية، رياضة، عالم الحيوان، السعودية، لهجات سعودية، من وين العبارة؟، عواصم، عملات، حساب ذهني، ألغاز، دوري روشن، الدوريات الكبرى، بطولات المنتخبات، ألعاب فيفا، أنمي، أنمي سبيستون، ون بيس وناروتو ودراغون بول، أفلام عالمية، ألعاب فيديو، سيارات، أكلات
+- ٣٦ فئة: حروف، إيموجي أماكن وأسماء، إيموجي كرة قدم، إيموجي أنمي، إيموجي أمثال، إيموجي أفلام، إيموجي مسلسلات، إيموجي أكلات، إيموجي ألعاب فيديو، ثقافة عامة، إسلاميات، جغرافيا، تاريخ، لغة عربية، علوم، تقنية، رياضة، عالم الحيوان، السعودية، لهجات سعودية، من وين العبارة؟، عواصم، عملات، حساب ذهني، ألغاز، دوري روشن، الدوريات الكبرى، بطولات المنتخبات، ألعاب فيفا، أنمي، أنمي سبيستون، ون بيس وناروتو ودراغون بول، أفلام عالمية، ألعاب فيديو، سيارات، أكلات
 - ~٤٩٠٠ سؤال بعد مراجعة كل سؤال (حذف الأسئلة السهلة، والتي تحتاج خيارات، والخاطئة) وحذف المكرر، تُسحب عشوائياً لكل لعبة، ولا يتكرر السؤال في نفس اللعبة ولا الأسئلة التي لُعبت على نفس الجهاز
 - مؤقت ٦٠ ثانية للفريق صاحب الدور ثم ٣٠ ثانية للفريق الآخر
 - وسائل المساعدة: دبّل ×٢، الحفرة، وقت إضافي
@@ -57,7 +57,7 @@ The question data is third-party content under its own licenses — **non-commer
 - **openfootball** — https://github.com/openfootball/football.json — CC0 (public domain). League tables computed from match results → `data/openfootball_champions.json`. Football questions (Saudi Pro League, big leagues, Champions League, Ballon d'Or, national-team tournaments, FIFA/EA FC games) are written from facts in `tools/football_categories.py` → `data/football_ar.json`.
 - Anime: original questions written for this project plus 23 translated/adapted from OpenTriviaQA (CC BY-SA 4.0) — text only, no images or lyrics — `tools/anime_category.py` → `data/anime_ar.json`.
 - حروف (Huroof-style): questions from the game's own bank whose answer is a single term, shown with the answer's first letter, plus ~350 original questions (mostly hard) so nearly every letter has 30 — `tools/huroof_hard.py` + `tools/letters_category.py` → `data/letters_ar.json`.
-- Emoji categories (إيموجي أماكن وأسماء / كرة قدم / أنمي / أمثال): 150 original emoji rebus puzzles with explanations and a hint button that halves the points — `tools/picture_category.py` → `data/pictures_ar.json`.
+- Emoji categories (8: أماكن وأسماء / كرة قدم / أنمي / أمثال / أفلام / مسلسلات / أكلات / ألعاب فيديو): 399 original emoji rebus puzzles, each labelled with what to guess («🎯 خمّن: …»), with explanations and a hint button that halves the points — `tools/picture_category.py`, `tools/emoji_labels.py`, `tools/emoji_more.py`.
 - أفلام عالمية / ألعاب فيديو / سيارات / أكلات: 201 questions (the kids category was removed in v4.0), 62 translated/adapted from OpenTriviaQA (CC BY-SA 4.0) and the rest written for this project — `tools/more_categories.py` → `data/more_ar.json`.
 - أنمي سبيستون / ون بيس وناروتو ودراغون بول: 129 questions — 8 adapted from **Open Trivia DB** (https://opentdb.com, CC BY-SA 4.0, via https://github.com/QuartzWarrior/OTDB-Source; wrong choices written for this project) and the rest original. Years, episode counts and studios checked against **anime-offline-database** (manami-project, https://github.com/manami-project/anime-offline-database, ODbL 1.0 / DbCL 1.0) — `tools/anime_more.py` → `data/anime_more_ar.json`.
 - About 50 other original questions.
