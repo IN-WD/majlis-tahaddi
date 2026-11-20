@@ -11,7 +11,7 @@ An Arabic two-team quiz game: pick 6 categories, play 36 questions worth 200/400
 - الخطوط: Lalezar للعناوين والأرقام، Tajawal للأسئلة (كلاهما OFL)
 
 ## تحميل التطبيق · Download
-**[⬇️ markaz-alomda-v4.2.apk](release/markaz-alomda-v4.2.apk)** — Android 5.0+، يعمل بدون إنترنت.
+**[⬇️ markaz-alomda-v4.3.apk](release/markaz-alomda-v4.3.apk)** — Android 5.0+، يعمل بدون إنترنت.
 
 افتح الملف على جوالك ← اسمح بالتثبيت من هذا المصدر ← تثبيت. قد يظهر تحذير Play Protect لأن التطبيق من خارج المتجر: اختر «تثبيت على أي حال».
 
@@ -60,6 +60,7 @@ The question data is third-party content under its own licenses — **non-commer
 - Emoji categories (8: أماكن وأسماء / كرة قدم / أنمي / أمثال / أفلام / مسلسلات / أكلات / ألعاب فيديو): 399 original emoji rebus puzzles, each labelled with what to guess («🎯 خمّن: …»), with explanations and a hint button that halves the points — `tools/picture_category.py`, `tools/emoji_labels.py`, `tools/emoji_more.py`.
 - أفلام عالمية / ألعاب فيديو / سيارات / أكلات: 201 questions (the kids category was removed in v4.0), 62 translated/adapted from OpenTriviaQA (CC BY-SA 4.0) and the rest written for this project — `tools/more_categories.py` → `data/more_ar.json`.
 - أنمي سبيستون / ون بيس وناروتو ودراغون بول: 129 questions — 8 adapted from **Open Trivia DB** (https://opentdb.com, CC BY-SA 4.0, via https://github.com/QuartzWarrior/OTDB-Source; wrong choices written for this project) and the rest original. Years, episode counts and studios checked against **anime-offline-database** (manami-project, https://github.com/manami-project/anime-offline-database, ODbL 1.0 / DbCL 1.0) — `tools/anime_more.py` → `data/anime_more_ar.json`.
+- Hard 600-point questions (علوم، تقنية، تاريخ، جغرافيا، ثقافة عامة): 154 questions translated and adapted into Arabic from **Quizbowl open data**, ACF Regionals 2018 (https://github.com/quizbowl/open-data, ODbL 1.0). Each shows «المصدر: Quizbowl — ACF Regionals 2018» with the answer. US-only, overly obscure and trivially easy tossups were skipped — `tools/quizbowl_hard.py`.
 - About 50 other original questions.
 - Font: **Tajawal** (Boutros Fonts / Mourad Boutros), SIL Open Font License 1.1 — `android/assets/fonts/OFL-LICENSE.txt`.
 
